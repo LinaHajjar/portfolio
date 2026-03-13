@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@
     <div class="page">
       <header class="site-header">
         <div class="logo-area">
-          <div class="logo-mark">LH</div>
+          <img src="pictures/Lina.jpg" alt="Lina Hajjar" class="logo-mark logo-photo" />
           <div class="logo-text">
             <span class="logo-name">Lina Hajjar</span>
             <span class="logo-tagline">Mathematician · AI Engineer · Founder</span>
@@ -25,6 +26,7 @@
         <nav class="site-nav">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
           <a href="#skills">Skills</a>
           <a href="#ai-products">AI Products</a>
           <a href="#contact">Contact</a>
@@ -102,8 +104,7 @@
             </div>
             <div class="about-photo-card">
               <div class="profile-photo-placeholder">
-                <!-- Replace this with a real photo when available -->
-                <div class="avatar-circle">L</div>
+                <img src="pictures/Lina2.png" alt="Lina Hajjar" class="profile-photo" />
               </div>
               <div class="photo-meta">
                 <p class="photo-name">Lina Hajjar</p>
@@ -284,9 +285,15 @@
         </section>
 
         <!-- EDUCATION -->
-        <section class="section education">
+        <section id="education" class="section education">
           <div class="section-header">
             <h2>Education & Continuous Learning</h2>
+            <p>
+              My academic journey combines a solid theoretical foundation in pure mathematics with
+              applied software development and, most recently, specialised training in AI integration
+              and MLOps. This mix enables me to move confidently from mathematical ideas, to code,
+              to robust AI systems that work in practice.
+            </p>
           </div>
           <div class="education-grid">
             <article class="edu-card">
@@ -358,8 +365,8 @@
           <div class="contact-grid">
             <div class="contact-details">
               <ul>
-                <li><strong>Location:</strong> Stengade, 2200 Copenhagen N, Denmark</li>
-                <li><strong>Phone:</strong> <a href="tel:+4551772001">+45 51 77 20 01</a></li>
+                <li><strong>Location:</strong> 2200 Copenhagen N, Denmark</li>
+                <li><strong>Phone:</strong> <a href="tel:+4552762553">+45 52 76 25 53</a></li>
                 <li>
                   <strong>Email:</strong>
                   <a href="mailto:linahajjar1@hotmail.com">linahajjar1@hotmail.com</a>
@@ -376,10 +383,19 @@
                     >aidevsolutions.dk</a
                   >
                 </li>
+                <li>
+                  <strong>GitHub:</strong>
+                  <a href="https://github.com/LinaHajjar" target="_blank" rel="noreferrer"
+                    >github.com/LinaHajjar</a
+                  >
+                </li>
               </ul>
             </div>
 
             <form class="contact-form" id="contactForm">
+              <input type="hidden" name="access_key" value="5f75c4a7-a4f5-49b4-ab26-a7bac49c2578" />
+              <input type="hidden" name="subject" value="New message from portfolio – Lina Hajjar" />
+              <input type="hidden" name="from_name" value="Lina Hajjar Portfolio" />
               <div class="form-row">
                 <div class="form-field">
                   <label for="name">Name</label>
@@ -403,11 +419,8 @@
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
               </div>
-              <button type="submit" class="btn primary full-width">Send message</button>
-              <p class="form-hint" id="formHint">
-                This is a demo form. It won’t send an email, but you can copy your
-                message and contact me via email or LinkedIn.
-              </p>
+              <button type="submit" class="btn primary full-width" id="formSubmitBtn">Send message</button>
+              <p class="form-hint" id="formHint"></p>
             </form>
           </div>
         </section>

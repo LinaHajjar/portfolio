@@ -195,16 +195,45 @@ function initSkillsOrbit() {
   });
 }
 
-// Contact form demo behaviour
+// Contact form – sends via Web3Forms
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const hint = document.getElementById('formHint');
-  if (!form || !hint) return;
+  const btn = document.getElementById('formSubmitBtn');
+  if (!form || !hint || !btn) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    hint.textContent =
-      'Thank you for your message. This demo form does not send email, but your text is still in the fields so you can copy it into an email to me.';
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    hint.textContent = '';
+    hint.style.color = '';
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        hint.textContent = 'Your message was sent! I will get back to you soon.';
+        hint.style.color = '#3bc9ff';
+        form.reset();
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      hint.textContent = 'Something went wrong. Please email me directly at linahajjar1@hotmail.com.';
+      hint.style.color = '#ff7bd8';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send message';
+    }
   });
 }
 
